@@ -69,8 +69,10 @@ export default function sendRequest(api, method, params, result) {
         result(null, null);
       } else if (contentType.indexOf('text/csv') !== -1) {
         download(response, 'export.csv');
+        result(true, null);
       } else if (contentType.indexOf('application/json-download') !== -1) {
         download(response, 'export.json');
+        result(true, null);
       } else if (contentType.indexOf('application/json') !== -1) {
         return response.json().then(json => result(json, null));
       } else if (contentType.indexOf('text/plain') !== -1) {
