@@ -1,6 +1,6 @@
 {
   "name": "fetch-send-request",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A wrapper around fetch() with callbacks",
   "main": "./build/index.js",
   "repository": {

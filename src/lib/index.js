@@ -1,8 +1,7 @@
 import 'whatwg-fetch';
 import moment from 'moment';
 
-export default function sendRequest(api, method, params, result) {
-  let headers;
+export default function sendRequest(api, method, params, headers, result) {
   let body;
 
   // Construct a request from the params. This depends on the HTTP method.
@@ -34,7 +33,7 @@ export default function sendRequest(api, method, params, result) {
     } else if (method === 'POST' || method === 'PATCH') {
       // POST and PATCH require a JSON encoded body.
       body = JSON.stringify(params);
-      headers = {'Content-Type': 'application/json'};
+      headers = Object.assign({}, headers, {'Content-Type': 'application/json'});
     }
   }
 
