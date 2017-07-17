@@ -57,7 +57,7 @@ export default function sendRequest(api, method, params, headers, result) {
       // Status Code 200 indicates success.
       if (response.status !== 200) {
         if (response.status === 400) {
-          return response.text().then(errorMessage => result(null, errorMessage));
+          return response.text().then(errorMessage => result(null, errorMessage || 'Bad Request'));
         }
   
         throw new Error(`Invalid status code ${response.status} returned from the backend.`);
